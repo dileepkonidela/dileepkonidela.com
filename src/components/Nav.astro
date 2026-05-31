@@ -1,0 +1,27 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/blog', label: 'Writing' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/about', label: 'About' },
+];
+---
+
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand">Dileep Konidela</a>
+    <ul class="nav-links">
+      {links.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            aria-current={currentPath.startsWith(href) ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

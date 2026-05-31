@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="Writing — Dileep Konidela" description="Essays, notes, and technical writing.">
+  <div class="container">
+    <header class="page-header">
+      <h1>Writing</h1>
+      <p>Essays, notes, and technical writing.</p>
+    </header>
+    <div class="item-list">
+      {posts.map(post => <PostCard post={post} />)}
+      {posts.length === 0 && <p style="color: var(--muted); padding: 2rem 0;">No posts yet.</p>}
+    </div>
+  </div>
+</BaseLayout>
