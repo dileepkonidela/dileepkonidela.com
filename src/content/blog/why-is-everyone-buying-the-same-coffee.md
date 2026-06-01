@@ -46,13 +46,21 @@ Despite different incomes, ages, personalities, and budgets, all three consumers
 
 Maya bought it on **88 of 90 days**. Raj bought it for **84 consecutive days**. Elena spent **83% of her cart additions** on this one item.
 
+![Baseline run: daily purchase fingerprint per consumer](/images/consumer-agents/v0_baseline_fingerprint.png)
+
 ### 2. Exploration stopped within the first two weeks
 
 I counted how many unique items each consumer had added to cart at least once. Raj and Elena reached their final set of explored items within the first two days. Maya explored slightly more, but eventually flattened out too.
 
+![All three consumers stopped exploring early — and never resumed](/images/consumer-agents/v0b_exploration_plateau.png)
+
 Across 263 total purchases, not one consumer bought an electronics item. No one bought premium phones. No one tried premium dining. No one meaningfully explored higher-end options.
 
 That was especially strange for Raj. His persona had high income, strong brand affinity, and low price sensitivity. But he still behaved like a constrained bargain shopper.
+
+Despite spending almost nothing, all three consumers actually grew their cash on hand over the 90 days — because the coffee habit was so cheap relative to their incomes.
+
+![Cash on hand grew for all three consumers over 90 days](/images/consumer-agents/v0c_cash_trajectory.png)
 
 ### 3. One moment of in-character behavior
 
@@ -82,6 +90,10 @@ The reflection described Maya as having a protected coffee habit. The next daily
 
 The summary stopped being a record of what happened. It became a reason to do it again.
 
+You can see this directly in the language the reflections used over time. Words like "habit," "infrastructure," "automaticity," "entrenched," and "streak" appeared more and more frequently in the baseline reflections — and far less in the first-person diary condition.
+
+![Crystallizing language in reflections, week-by-week](/images/consumer-agents/v4_settling_vocab.png)
+
 ## Breaking the Loop
 
 If the reflection loop was causing the convergence, then breaking that loop should reduce it. I ran two additional 90-day variations.
@@ -100,17 +112,21 @@ If the reflection loop was causing the convergence, then breaking that loop shou
 
 In this small run, both interventions reduced the coffee loop. The first-person diary broke it more thoroughly.
 
+![Daily purchase fingerprint: 3 personas × 3 runs](/images/consumer-agents/v1_daily_fingerprint.png)
+
 ### Coffee habit broke
 
 The no-reflection condition produced more variety than the baseline, but still showed repetitive behavior.
 
-The first-person diary condition changed behavior and made the shoppers diverge: more no-purchase days, more varied item choices, and less lock-in around a single product.
+The first-person diary condition made the shoppers diverge: more no-purchase days, more varied item choices, and less lock-in around a single product. It also made the consumers more distinguishable — between-persona similarity dropped from **0.99 to 0.69**. Maya shifted toward weekend dining. Raj shifted toward household groceries. Elena spread purchases across groceries, dining, and one electronics item.
 
-It also made the consumers more distinguishable. Between-persona similarity dropped from **0.99 to 0.69**. Maya shifted toward weekend dining. Raj shifted toward household groceries like milk, eggs, bananas, and chicken. Elena spread purchases across groceries, dining, and one electronics item.
+![How much of each persona's cart was a single SKU?](/images/consumer-agents/v2_concentration.png)
 
 ### Cart abandonments increased 25× compared to baseline
 
 Cart abandonments were moments when a consumer paused on a purchase and walked away. In the first-person diary condition, abandonments increased **25×** and appeared throughout the run, rather than only as a single Valentine's Day exception.
+
+![When did the consumers actually walk away from a cart?](/images/consumer-agents/v3_abandonments_over_time.png)
 
 The consumers considered alternatives, walked away from carts, and produced reasoning that sounded more like internal thoughts than external behavioral analysis.
 
