@@ -11,22 +11,36 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
 
 const date = post.data.date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
+
+// Estimate reading time (avg 200 wpm)
+const wordCount = post.body?.split(/\s+/).length ?? 0;
+const readingTime = Math.max(1, Math.round(wordCount / 200));
 ---
 
 <BaseLayout title={`${post.data.title} — Dileep Konidela`} description={post.data.description}>
   <div class="container">
     <header class="post-header">
       <h1>{post.data.title}</h1>
+      <p class="post-description">{post.data.description}</p>
       <div class="post-meta">
+        <span>Dileep Konidela</span>
+        <span class="post-meta-sep">·</span>
         <span>{date}</span>
-        {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
+        <span class="post-meta-sep">·</span>
+        <span>{readingTime} min read</span>
+        {post.data.tags.length > 0 && (
+          <>
+            <span class="post-meta-sep">·</span>
+            {post.data.tags.map(tag => <span class="tag">{tag}</span>)}
+          </>
+        )}
       </div>
     </header>
     <article class="prose">
